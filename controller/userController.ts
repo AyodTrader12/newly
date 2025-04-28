@@ -108,11 +108,11 @@ const ReadSingleUser = async(req:Request,res:Response) => {
 const UpdateUserInfo = async(req:Request,res:Response) => {
     try {
         const {userId} = req.params
-        const {name,email,password} = req.body
+        const {name,email,} = req.body
         const user = await userModel.findByIdAndUpdate(userId,{
             name,
             email,
-            password
+            
         },{new:true})
         
         return res.status(201).json({
